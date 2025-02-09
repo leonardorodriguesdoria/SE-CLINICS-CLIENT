@@ -1,0 +1,76 @@
+.dark-toolbar {
+  background-color: #1976d2;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  flex-wrap: wrap;
+}
+
+.menu-button {
+  display: none;
+}
+
+.nav-options {
+  display: flex;
+  color: #fff;
+  gap: 16px;
+}
+
+.navOptionsButton {
+  color: #fff !important;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.login-button {
+  background-color: #e91e63 !important;
+  color: white;
+  margin-left: 16px;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-button {
+    display: block;
+  }
+
+  .nav-options {
+    display: none;
+  }
+
+  .login-button {
+    display: none;
+    background-color: #e91e63 !important;
+  }
+
+  .mobile-menu.mobile-visible {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1976d2;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    z-index: 1000;
+    padding: 8px 0;
+  }
+
+  .mobile-menu.mobile-visible button {
+    width: 100%;
+    text-align: left;
+    padding: 8px 16px;
+  }
+
+  .mobile-menu.mobile-visible .login-button {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 8px auto;
+    text-align: center;
+  }
+}

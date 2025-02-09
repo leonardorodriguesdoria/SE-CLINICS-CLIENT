@@ -1,1 +1,24 @@
-<p>navbar works!</p>
+<mat-toolbar class="dark-toolbar">
+  <span>S.E Clinics</span>
+
+  <span class="spacer"></span>
+
+  <div class="nav-options">
+    <button mat-button class="navOptionsButton">Home</button>
+    <button mat-button class="navOptionsButton">Médicos</button>
+    <button mat-button class="navOptionsButton">Sobre</button>
+  </div>
+
+  <button mat-flat-button class="login-button">Login</button>
+
+  <button mat-icon-button class="menu-button" (click)="toggleMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <div class="mobile-menu" [class.mobile-visible]="isMenuOpen">
+    <button mat-button class="navOptionsButton">Home</button>
+    <button mat-button class="navOptionsButton">Médicos</button>
+    <button mat-button class="navOptionsButton">Sobre</button>
+    <button mat-flat-button class="login-button">Login</button>
+  </div>
+</mat-toolbar>

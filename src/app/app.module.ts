@@ -5,10 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TemplateModule } from './components/templates/template.module';
+import { AngularMaterialModule } from './angularMaterialModule/angular-material.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, TemplateModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    TemplateModule,
+    AngularMaterialModule,
+  ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],
 })
