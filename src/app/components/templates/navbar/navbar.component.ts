@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MenuRoutes } from '../../../custom-routes';
 
 @Component({
   selector: 'app-navbar',
@@ -6,7 +8,14 @@ import { Component } from '@angular/core';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
+export class NavbarComponent extends MenuRoutes {
+  constructor(router: Router) {
+    super(router);
+    //super.goToProfessionals();
+    //super.goToAbout();
+    //super.goToHome();
+  }
+
   isMenuOpen = false;
 
   toggleMenu() {

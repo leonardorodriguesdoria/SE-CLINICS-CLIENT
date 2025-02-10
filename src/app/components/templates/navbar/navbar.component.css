@@ -11,6 +11,10 @@
   display: none;
 }
 
+.title {
+  cursor: pointer;
+}
+
 .nav-options {
   display: flex;
   color: #fff;

@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { TemplateModule } from './components/templates/template.module';
 import { AngularMaterialModule } from './angularMaterialModule/angular-material.module';
+import { PagesModule } from './components/pages/pages.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -14,6 +15,7 @@ import { AngularMaterialModule } from './angularMaterialModule/angular-material.
     AppRoutingModule,
     TemplateModule,
     AngularMaterialModule,
+    PagesModule,
   ],
   providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent],

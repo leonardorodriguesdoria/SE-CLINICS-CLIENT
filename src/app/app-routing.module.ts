@@ -1,11 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavbarComponent } from './components/templates/navbar/navbar.component';
-import { FooterComponent } from './components/templates/footer/footer.component';
+import { RegisterUserComponent } from './components/pages/register-user/register-user.component';
+import { LoginUserComponent } from './components/pages/login-user/login-user.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { ProfessionalsComponent } from './components/pages/professionals/professionals.component';
+import { AboutComponent } from './components/pages/about/about.component';
 
 const routes: Routes = [
-  { path: 'navbar', component: NavbarComponent },
-  { path: 'footer', component: FooterComponent },
+  { path: '', component: HomeComponent },
+  { path: 'register', component: RegisterUserComponent },
+  { path: 'login', component: LoginUserComponent },
+  { path: 'professionals', component: ProfessionalsComponent },
+  { path: 'about', component: AboutComponent },
 ];
 
 @NgModule({
