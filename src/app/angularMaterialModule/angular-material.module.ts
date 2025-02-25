@@ -22,6 +22,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [],
@@ -49,6 +51,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
     FormsModule,
   ],
   exports: [
@@ -73,6 +77,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
+    MatProgressSpinnerModule,
+    MatSnackBarModule,
     FormsModule,
   ],
 })

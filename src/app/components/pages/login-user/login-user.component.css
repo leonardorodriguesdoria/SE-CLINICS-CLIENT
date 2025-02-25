@@ -60,10 +60,37 @@ mat-form-field {
 .button-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 16px;
 }
 
 .login-button {
   background-color: #e91e63;
   color: #fff;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.error-field .mat-form-field-wrapper {
+  border-bottom: 2px solid red !important;
+}
+
+.spinner {
+  margin: 0 auto;
+}
+
+mat-error {
+  font-size: 12px;
+  color: red !important;
+}
+
+mat-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
 }
