@@ -8,20 +8,29 @@
 </div>
 <mat-card>
   <mat-card-content>
-    <form [formGroup]="userForm">
+    <form [formGroup]="userForm" (ngSubmit)="onRegisterUserSubmit()">
       <mat-form-field class="full-width">
         <mat-label>Nome:</mat-label>
         <input matInput formControlName="name" />
+        <mat-error *ngIf="userForm.controls['name'].invalid">
+          {{ errorMessages["name"] || "Nome é obrigatório" }}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Email:</mat-label>
         <input matInput formControlName="email" />
+        <mat-error *ngIf="userForm.controls['email'].invalid">
+          {{ errorMessages["email"] || "Formato de e-mail inválido" }}
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">
         <mat-label>Senha:</mat-label>
         <input matInput type="password" formControlName="password" />
+        <mat-error *ngIf="userForm.controls['password'].invalid">
+          {{ errorMessages["password"] || "A senha é obrigatória" }}
+        </mat-error>
       </mat-form-field>
 
       <!-- Escolha do tipo de usuário -->
@@ -29,7 +38,7 @@
         <span class="userTypeSpan"
           >Você é um paciente ou profissional da saúde ?</span
         >
-        <mat-radio-group formControlName="userType" class="radio-group">
+        <mat-radio-group formControlName="role" class="radio-group">
           <mat-radio-button value="paciente">Paciente</mat-radio-button>
           <mat-radio-button value="profissional"
             >Profissional da Saúde</mat-radio-button
@@ -38,15 +47,20 @@
       </div>
 
       <!-- Campos específicos para Paciente -->
-      <div *ngIf="userForm.get('userType')?.value === 'paciente'">
+      <div *ngIf="userForm.get('role')?.value === 'paciente'">
         <mat-form-field class="full-width">
           <mat-label>Data de Nascimento:</mat-label>
           <input
             matInput
-            type="date"
+            type="text"
             formControlName="birthDate"
             [matDatepicker]="picker"
           />
+          <mat-error *ngIf="userForm.controls['birthDate'].invalid">
+            {{
+              errorMessages["birthDate"] || "A data de nascimento é obrigatória"
+            }}
+          </mat-error>
           <mat-datepicker-toggle
             matIconSuffix
             [for]="picker"
@@ -57,38 +71,62 @@
         <mat-form-field class="full-width">
           <mat-label>Plano de Saúde:</mat-label>
           <input matInput formControlName="healthPlan" />
+          <mat-error *ngIf="userForm.controls['healthPlan'].invalid">
+            {{
+              errorMessages["healthPlan"] || "O plano de saúde é obrigatório"
+            }}
+          </mat-error>
         </mat-form-field>
       </div>
 
       <!-- Campos específicos para Profissional da Saúde -->
-      <div *ngIf="userForm.get('userType')?.value === 'profissional'">
+      <div *ngIf="userForm.get('role')?.value === 'profissional'">
         <mat-form-field class="full-width">
           <mat-label>Especialização Médica:</mat-label>
           <input matInput formControlName="specialization" />
+          <mat-error *ngIf="userForm.controls['specialization'].invalid">
+            {{
+              errorMessages["specialization"] ||
+                "A especialização do profissional  é obrigatória"
+            }}
+          </mat-error>
         </mat-form-field>
 
         <mat-form-field class="full-width">
           <mat-label>Clínicas:</mat-label>
-          <mat-select multiple formControlName="clinics">
+          <mat-select multiple formControlName="clinicsId">
             <mat-option *ngFor="let clinic of clinics" [value]="clinic.id">
               {{ clinic.name }}
             </mat-option>
           </mat-select>
+          <mat-error *ngIf="userForm.controls['clinicsId'].invalid">
+            {{
+              errorMessages["clinicsId"] ||
+                "Selecione as clínicas nas quais trabalha"
+            }}
+          </mat-error>
         </mat-form-field>
+      </div>
+      <div class="button-container">
+        <button
+          *ngIf="!isLoading"
+          mat-raised-button
+          color="primary"
+          class="register-button"
+          type="submit"
+        >
+          Cadastrar
+        </button>
+        <mat-spinner
+          *ngIf="isLoading"
+          diameter="30"
+          color="primary"
+          class="spinner"
+        ></mat-spinner>
       </div>
     </form>
   </mat-card-content>
-
-  <mat-card-footer>
-    <div class="button-container">
-      <button
-        mat-raised-button
-        color="primary"
-        (click)="submitForm()"
-        class="register-button"
-      >
-        Cadastrar
-      </button>
-    </div>
-  </mat-card-footer>
 </mat-card>
+<div class="span-ask-container">
+  <span>Já possui cadastro ? <a href="/login">Faça o login aqui</a></span>
+</div>

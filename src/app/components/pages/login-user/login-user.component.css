@@ -89,6 +89,11 @@ mat-error {
   color: red !important;
 }
 
+.span-ask-container {
+  display: flex;
+  justify-content: center;
+}
+
 mat-spinner {
   display: inline-block;
   vertical-align: middle;

@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { IRegisterUser } from './interfaces/register-user.interface';
+import { IClinicsList } from './interfaces/clinics.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -20,12 +22,30 @@ export class AuthService {
     });
   }
 
+  getAllClinics(): Observable<IClinicsList[]> {
+    const getAllClinicsUrl = `${this.apiUrl}/clinics/list`;
+    return this.http.get<IClinicsList[]>(getAllClinicsUrl);
+  }
+
   loginUser(email: string, password: string): Observable<any> {
     const loginUserUrl = `${this.apiUrl}/auth/login`;
     const body = { email, password };
 
     return this.http
       .post<any>(loginUserUrl, body, { withCredentials: true })
+      .pipe(
+        tap((response) => {
+          this.showMessage(response.message);
+        }),
+        catchError(this.handleError)
+      );
+  }
+
+  registerUser(body: IRegisterUser): Observable<any> {
+    const registerUserUrl = `${this.apiUrl}/auth/register`;
+
+    return this.http
+      .post<any>(registerUserUrl, body, { withCredentials: true })
       .pipe(
         tap((response) => {
           this.showMessage(response.message);

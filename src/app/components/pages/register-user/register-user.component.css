@@ -1,5 +1,6 @@
 .full-width {
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .logo-container {
@@ -56,12 +57,22 @@
 .button-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 16px;
 }
 
 .register-button {
   background-color: #e91e63;
   color: #fff;
+}
+
+.span-ask-container {
+  display: flex;
+  justify-content: center;
+}
+
+.spinner {
+  margin: 0 auto;
 }
 
 mat-card {
@@ -73,4 +84,10 @@ mat-card {
 mat-form-field {
   display: block;
   margin-bottom: 16px;
+}
+
+mat-spinner {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
 }
