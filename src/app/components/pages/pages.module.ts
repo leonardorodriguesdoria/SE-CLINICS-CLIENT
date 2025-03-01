@@ -7,6 +7,8 @@ import { ProfessionalsComponent } from './professionals/professionals.component'
 import { AboutComponent } from './about/about.component';
 import { AngularMaterialModule } from '../../angularMaterialModule/angular-material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     ProfessionalsComponent,
     AboutComponent,
+    UserProfileComponent,
+    AppointmentsComponent,
   ],
   imports: [CommonModule, AngularMaterialModule, ReactiveFormsModule],
   exports: [RegisterUserComponent, LoginUserComponent, HomeComponent],
