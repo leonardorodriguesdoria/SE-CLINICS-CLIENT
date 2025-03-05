@@ -5,6 +5,7 @@ import { LoginUserComponent } from './components/pages/login-user/login-user.com
 import { HomeComponent } from './components/pages/home/home.component';
 import { ProfessionalsComponent } from './components/pages/professionals/professionals.component';
 import { AboutComponent } from './components/pages/about/about.component';
+import { UserProfileComponent } from './components/pages/user-profile/user-profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginUserComponent },
   { path: 'professionals', component: ProfessionalsComponent },
   { path: 'about', component: AboutComponent },
+  { path: ':id', component: UserProfileComponent },
 ];
 
 @NgModule({
